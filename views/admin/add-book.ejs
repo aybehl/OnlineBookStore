@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/tailwind-built.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <style>
+    .input-with-icon {
+      position: relative;
+    }
+    .input-with-icon input {
+      padding-left: 2.5rem;
+    }
+    .input-with-icon .icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-custom-background-color text-custom-text-color font-proza-libre">
+  <!-- HEADER -->
+  <header class="flex flex-row justify-between items-center text-20 my-3 mx-4 lg:mx-120">
+    <!-- BOOK WORLD LOGO -->
+    <div class="flex justify-between items-center gap-x-2">
+      <img src="/images/book-world-logo.svg" alt="Books stacked on top of each other">
+      <div class="flex flex-col justify-center items-center gap-0">
+        <span class="text-20 font-bold">Book</span>
+        <span class="text-20 font-extrabold mt-[-0.5rem]">World</span>
+      </div>
+    </div>
+
+    <!-- NAV MENU-->
+    <nav class="hidden lg:flex justify-between items-center gap-x-10 text-20 font-medium">
+      <a href="/">Home</a>
+      <a href="/books">Store</a>
+      <a href="#">Community</a>
+      <a href="#">About</a>
+    </nav>
+
+    <!-- SHOP NOW-->
+    <div class="flex justify-between items-center gap-x-2 font-medium">
+      <img src="/images/shopping-bag-icon.svg" alt="A pink shopping bag with a smiling face">
+      <span class="text-20">Shop Now</span>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex flex-col justify-center items-center gap-y-16 mt-14 mx-4 lg:mx-72">
+    <!-- HEADING -->
+    <h1 class="font-semibold text-3xl">Add a Book</h1>
+
+    <!-- TO HANDLE FORM SUBMISSION SUCCESS/FAILURE RESPONSE-->
+    <% if (message && message.includes('Error')) { %>
+        <p class="text-red-500' text-2xl font-bold"><%= message %></p>
+    <% } %>
+    <!-- <% if (message) { %>
+        <p class="<%= message.includes('Error') ? 'text-red-500' : 'text-green-500' %> text-2xl font-bold"><%= message %></p>
+    <% } %> -->
+
+    <!-- ADD BOOK FORM -->
+    <form action="/admin/add-book" method="POST" enctype="multipart/form-data" class="w-500 flex flex-col gap-y-10 mb-14">
+        <div class="flex flex-col gap-y-10">
+            <!-- BOOK NAME -->
+            <div class="flex flex-col gap-y-2">
+                <label for="book_name" class="font-semibold text-xl">Book Title</label>
+                <input type="text" id="book_name" name="book_name" placeholder="Enter the book title" class="p-3 rounded-lg bg-custom-gray placeholder:text-base placeholder:text-custom-placeholder" required>
+            </div>
+        
+            <!-- AUTHOR NAME -->
+            <div class="flex flex-col gap-y-2">
+                <label for="author_name" class="font-semibold text-xl">Author Name</label>
+                <input type="text" id="author_name" name="author_name" placeholder="Enter the author name" class="p-3 rounded-lg bg-custom-gray placeholder:text-base placeholder:text-custom-placeholder" required>
+            </div>
+
+            <div class="flex justify-between">
+                <!-- AMOUNT -->
+                <div class="flex flex-col gap-y-2">
+                    <label for="book_price" class="font-semibold text-xl">Amount</label>
+                    <!-- <input type="text" id="book_price" name="book_price" placeholder="Enter amount" class="p-3 rounded-lg bg-custom-gray placeholder:text-base placeholder:text-custom-placeholder"> -->
+
+                    <div class="input-with-icon">
+                        <span class="icon text-custom-text-color">$</span>
+                        <input type="text" id="book_price" name="book_price" placeholder="Enter amount" pattern="^\d*(\.\d{0,2})?$" title="Please enter a valid decimal number" class="p-3 rounded-lg bg-custom-gray placeholder:text-base placeholder:text-custom-placeholder" required>
+                    </div>
+                </div>
+
+                <!-- QUANTITY IN STOCK -->
+                <div class="flex flex-col gap-y-2">
+                    <label for="book_quantity" class="font-semibold text-xl">Quanity in Stock</label>
+                    <input type="number" id="book_quantity" name="book_quantity" placeholder="Enter quanity" class="p-3 rounded-lg bg-custom-gray placeholder:text-base placeholder:text-custom-placeholder" required>
+                </div>
+            </div>
+
+            <!-- ABOUT -->
+            <div class="flex flex-col gap-y-2">
+                <label for="book_description" class="font-semibold text-xl">About</label>
+                <textarea type="text" id="book_description" name="book_description" placeholder="What is the book about?" class="p-3 pb-32 rounded-lg bg-custom-gray placeholder:text-base placeholder:text-custom-placeholder" required></textarea>
+            </div>
+        
+            <!-- COVER PHOTO -->
+            <div class="flex flex-col gap-y-2">
+                <label for="cover_picture" class="font-semibold text-xl">Cover Photo</label>
+                <input type="file" accept="image/png" id="cover_picture" name="cover_picture" placeholder="Choose File" class="p-3 rounded-lg bg-custom-gray placeholder:text-base placeholder:text-custom-placeholder" required>
+            </div>
+
+            <div class="mx-auto">
+                <button type="submit" class="font-semibold text-xl bg-custom-yellow border border-custom-text-color rounded-lg px-10 py-3">Submit</button>
+            </div>
+        </div>
+    </form>
+  </main>
+  
+
+  
+</body>
+</html>

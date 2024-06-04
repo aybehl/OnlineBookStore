@@ -4,7 +4,6 @@ const bookModel = require('../models/book');
 const getAllBooks = async () => {
     try {
         const books = await bookModel.find({});
-        console.log(books);
         return books;
     } catch(err){
         console.error(`Error fetching all books from Book Collection - ${err.message}`);
@@ -24,7 +23,18 @@ const getBookById = async (book_id) => {
     }
 }
 
+const addNewBook = async (bookData) => {
+    try {
+        const newBook = new bookModel(bookData);
+        await newBook.save();
+    } catch(err){
+        console.error(`Error saving a new book - ${err.message}`);
+        throw new Error(`Error saving a new book - ${err}`);
+    }
+}
+
 module.exports = {
     getAllBooks,
-    getBookById
+    getBookById,
+    addNewBook
 };

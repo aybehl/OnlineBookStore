@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 const BookSchema = new mongoose.Schema({
     book_id: {
-        type: Number,
-        unique: true
+        type: String,
+        unique: true,
+        required: true
     },
     book_name: {
         type: String,

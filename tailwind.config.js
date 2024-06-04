@@ -14,7 +14,9 @@ module.exports = {
         'custom-text-color': '#212121',
         'custom-background-color': '#F6F9ED',
         'custom-yellow': '#FDCC00',
-        'custom-green': '#648633'
+        'custom-green': '#648633',
+        'custom-gray': '#D9D9D9',
+        'custom-placeholder': '#484747'
       },
       margin: {
         '120': '7.5rem',
@@ -28,6 +30,9 @@ module.exports = {
       borderRadius: {
         '10xl': '2.5rem', // 40px = 2.5rem
       },
+      width:{
+        '500': '31.35rem' // 500px / 16 = 31.25rem
+      }
     },
   },
   plugins: [],
