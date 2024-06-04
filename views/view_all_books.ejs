@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/tailwind-built.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-custom-background-color text-custom-text-color font-proza-libre">
+  <!-- HEADER -->
+  <header class="flex flex-row justify-between items-center text-20 my-3 mx-4 lg:mx-120">
+    <!-- BOOK WORLD LOGO -->
+    <div class="flex justify-between items-center gap-x-2">
+      <img src="/images/book-world-logo.svg" alt="Books stacked on top of each other">
+      <div class="flex flex-col justify-center items-center gap-0">
+        <span class="text-20 font-bold">Book</span>
+        <span class="text-20 font-extrabold mt-[-0.5rem]">World</span>
+      </div>
+    </div>
+
+    <!-- NAV MENU-->
+    <nav class="hidden lg:flex justify-between items-center gap-x-10 text-20 font-medium">
+      <a href="/">Home</a>
+      <a href="/books">Store</a>
+      <a href="#">Community</a>
+      <a href="#">About</a>
+    </nav>
+
+    <!-- SHOP NOW-->
+    <div class="flex justify-between items-center gap-x-2 font-medium">
+      <img src="/images/shopping-bag-icon.svg" alt="A pink shopping bag with a smiling face">
+      <span class="text-20">Shop Now</span>
+    </div>
+  </header>
+
+  <!-- MAIN - ALL BOOKS -->
+  <main class="flex flex-col justify-center items-center gap-y-16 mt-14 mx-4 lg:mx-72">
+    <!-- HEADING -->
+    <h1 class="font-semibold text-3xl">Our Collection</h1>
+
+    <!-- ALL BOOKS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-9 gap-x-12">
+      <!-- BOOK -->
+      <% books.forEach(book => { %>
+        <div class="flex flex-col justify-center items-center">
+          <!-- <img src="data:image/svg+xml;base64,<%= book.cover_picture %>" alt="<%= book.book_name %> cover" class="w-full h-64 object-cover rounded-lg mb-4"> -->
+          <img src="/images/book_covers/time_shelter.png" alt="Time Shelter">
+          <h2 class="font-semibold text-20"><%= book.book_name %></h2>
+          <p>$<%= book.book_price %></p>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+</body>
+</html>

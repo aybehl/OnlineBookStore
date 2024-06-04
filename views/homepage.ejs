@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/tailwind-built.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&display=swap" rel="stylesheet">
+</head>
+<body class="bg-custom-background-color text-custom-text-color font-proza-libre">
+  <!-- HEADER -->
+  <header class="flex flex-row justify-between items-center text-custom-20px my-3 mx-4 lg:mx-120">
+    <!-- BOOK WORLD LOGO -->
+    <div class="flex justify-between items-center gap-x-2">
+      <img src="/images/book-world-logo.svg" alt="Books stacked on top of each other">
+      <div class="flex flex-col justify-center items-center gap-0">
+        <span class="text-custom-20px font-bold">Book</span>
+        <span class="text-custom-20px font-extrabold mt-[-0.5rem]">World</span>
+      </div>
+    </div>
+
+    <!-- NAV MENU-->
+    <nav class="hidden lg:flex justify-between items-center gap-x-10 text-20 font-medium">
+      <a href="/">Home</a>
+      <a href="/books">Store</a>
+      <a href="#">Community</a>
+      <a href="#">About</a>
+    </nav>
+
+    <!-- SHOP NOW-->
+    <div class="flex justify-between items-center gap-x-2 font-medium">
+      <img src="/images/shopping-bag-icon.svg" alt="A pink shopping bag with a smiling face">
+      <span class="text-20">Shop Now</span>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex flex-col lg:flex-row min-h-screen justify-center items-center gap-y-8 lg:gap-x-100 px-4 lg:px-0">
+    <!-- CONTENT -->
+    <div class="flex flex-col items-start gap-y-4">
+      <!-- SMALL HEADING-->
+      <div class="flex items-center gap-x-2 font-normal">
+        <img src="/images/star-fall-icon.svg" alt="A yellow star falling diagonally">
+        <span class="text-base">Start your reading journey today</span>
+      </div>
+
+      <!-- MAIN HEADING -->
+      <div class="flex flex-col items-start text-4xl lg:text-6xl font-light font-averia-sans-libre">
+        <h1>Where every page</h1>
+        <h1>is a new Adventure</h1>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="font-normal text-base w-full lg:w-500 mx-0.5">
+        From timeless classics to modern masterpieces, our online 
+        bookstore offers an extensive collection of books to cater 
+        to every reader's taste and interest. Whether you're looking for
+        gripping fiction, insightful non-fiction, or delightful 
+        children's books, we have something for everyone. Explore our 
+        carefully curated selections and discover your next 
+        favorite read today.
+      </div>
+
+      <!-- VIEW COLLECTION BUTTON -->
+      <div class="font-normal text-base bg-custom-yellow border border-custom-text-color rounded-10xl px-9 py-5">
+        <a href="/books">Checkout Our Collection</a>
+      </div>
+    </div>
+
+    <!-- MAIN IMAGE -->
+    <div>
+      <img src="/images/stack-of-books-image.svg" alt="A stack of colorful books with a coffee cup and spectacles">
+    </div>
+  </main>
+</body>
+</html>

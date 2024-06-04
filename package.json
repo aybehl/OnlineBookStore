@@ -1,0 +1,41 @@
+{
+  "name": "onlinebookstore",
+  "version": "1.0.0",
+  "description": "This repository contains the frontend and backend of an Online Book Store, created using NodeJS, HTML, CSS and MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:css\"",
+    "dev:server": "nodemon ./index.js",
+    "dev:css": "postcss public/css/tailwind.css -o public/css/tailwind-built.css --watch",
+    "build:css": "postcss public/css/tailwind.css -o public/css/tailwind-built.css"
+  },
+  "author": "Ayushi Behl",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.2",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.3"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "index.js",
+      "routes",
+      "public",
+      "views",
+      "config"
+    ],
+    "ext": "js,json,ejs,html,css",
+    "ignore": [
+      "node_modules"
+    ]
+  }
+}
