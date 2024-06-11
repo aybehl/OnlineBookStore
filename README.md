@@ -41,4 +41,5 @@ Books
 - description
 
 # Image Citations
-
+- All images for the book covers have been taken from this website - https://bookoutlet.ca/
+- All icons are taken from - svgrepo.com
